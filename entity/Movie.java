@@ -1,9 +1,15 @@
 package entity;
 
-import java.io.*;
+import java.io.Serializable;
 
 public class Movie implements Serializable {
-
+	
+	/**
+	 * Used during deserialization to verify that the sender and receiver of a serialized object have loaded 
+	 * classes for that object that are compatible with respect to serialization 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private String cast;
 	private String director;
@@ -12,17 +18,24 @@ public class Movie implements Serializable {
 	private float userRate;
 	private String status;
 
-	// private String showTime;
-	public Movie() {
-	}
-
-	public Movie(String name, String cast, String director, String plot, String rating, String status) {
-		setName(name);
-		setCast(cast);
-		setDirector(director);
-		setPlot(plot);
-		setRating(rating);
-		setMovieStatus(status);
+	
+	/**
+	 * Constructor to instantiate the Movie object with the following inputs
+	 * @param name	
+	 * @param cast		
+	 * @param director	
+	 * @param plot
+	 * @param rating
+	 * @param status
+	 */
+	public Movie(String name, String cast, String director, String plot,
+			String rating, String status) {
+		this.name = name;
+		this.cast = cast;
+		this.director = director;
+		this.plot = plot;
+		this.rating = rating;
+		this.status = status;
 	}
 
 	// All the gets methods
